@@ -343,11 +343,12 @@
 }
 
 .carousel-section {
-  width: 80%;
+  width: 100%;
   padding: 6rem 0;
   overflow: hidden;
 
       @include media-queries.desktop {
+      width: 80%;
       margin: 8vh 10vw 15vh;
     }
 }
@@ -365,6 +366,27 @@
   width: 100%;
   overflow: visible;
   position: relative;
+  padding-left:50px;
+  padding-right: 50px;
+}
+
+.carousel::before, .carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 5;
+}
+
+.carousel::before {
+  left: 50px;
+  background: linear-gradient(to right, #000000, transparent);
+}
+
+.carousel::after {
+  right: 50px;
+  background: linear-gradient(to left, #000000, transparent);
 }
 
 .carousel__btn {
@@ -398,11 +420,11 @@
 }
 
 .carousel__btn--left {
-  left: 0;
+  left: 0px;
 }
 
 .carousel__btn--right {
-  right: 0;
+  right: 0px;
 }
 
 .carousel__track {
